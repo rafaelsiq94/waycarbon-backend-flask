@@ -1,0 +1,30 @@
+POST http://localhost:5000/api/carbon/add
+Content-Type: application/json
+
+{
+  "car_id": 1,
+  "km": 100,
+  "eletricity": 0,
+  "gas": 1
+}
+
+###
+GET http://localhost:5000/api/carbon
+Content-Type: application/json
+
+###
+GET http://localhost:5000/api/carbon/90dcf244-5b25-46fa-ac8e-9c78fb6d16e2
+
+###
+DELETE http://localhost:5000/api/carbon/delete/29e44623-263d-41ff-972c-861b7a551501
+
+###
+PUT http://localhost:5000/api/carbon/update/90dcf244-5b25-46fa-ac8e-9c78fb6d16e2
+Content-Type: application/json
+
+{
+  "car_id": 1,
+  "km": 100,
+  "eletricity": 0,
+  "gas": 3
+}
