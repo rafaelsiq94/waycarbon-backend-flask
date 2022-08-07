@@ -1,4 +1,6 @@
 from utils.DateFormat import DateFormat
+from utils.TcoFormat import TcoFormat
+from utils.CarFormat import CarFormat
 
 
 class Carbon:
@@ -27,12 +29,12 @@ class Carbon:
     def to_JSON(self):
         return {
             "id": self.id,
-            "car_id": self.car_id,
+            "car_id": CarFormat.car_format(self.car_id),
             "km": self.km,
             "eletricity": self.eletricity,
             "gas": self.gas,
-            "total_tco2_monthly": self.total_tco2_monthly,
-            "total_tco2_yearly": self.total_tco2_yearly,
+            "total_tco2_monthly": TcoFormat.convert_tco(self.total_tco2_monthly),
+            "total_tco2_yearly": TcoFormat.convert_tco(self.total_tco2_yearly),
             "trees": self.trees,
             "creation_date": DateFormat.convert_date(self.creation_date),
         }

@@ -5,7 +5,7 @@ from routes import Carbon
 
 app = Flask(__name__)
 
-CORS(app, resources={"*": {"origins": "http://localhost:3000"}})
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 
 def page_not_found(error):

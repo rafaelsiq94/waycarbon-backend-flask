@@ -4,6 +4,7 @@ import uuid
 
 from models.CarbonModel import CarbonModel
 from models.entities.Carbon import Carbon
+from utils.TcoFormat import TcoFormat
 
 main = Blueprint("carbon_blueprint", __name__)
 
@@ -67,12 +68,8 @@ def add_carbon():
             return (
                 jsonify(
                     {
-                        "total_tco2_mes": format(total_tco2_monthly, ".3f").replace(
-                            ".", ","
-                        ),
-                        "total_tco2_ano": format(total_tco2_yearly, ".3f").replace(
-                            ".", ","
-                        ),
+                        "total_tco2_mes": TcoFormat.convert_tco(total_tco2_monthly),
+                        "total_tco2_ano": TcoFormat.convert_tco(total_tco2_yearly),
                         "arvores": trees,
                     }
                 ),
