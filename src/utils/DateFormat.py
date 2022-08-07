@@ -1,8 +1,7 @@
 import datetime
 
 
-class DateFormat():
-
+class DateFormat:
     @classmethod
     def convert_date(self, date):
-        return datetime.datetime.strftime(date, '%d/%m/%Y')
+        return datetime.datetime.strftime(date, "%d/%m/%Y")
