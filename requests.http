@@ -5,7 +5,8 @@ Content-Type: application/json
   "car_id": 1,
   "km": 100,
   "eletricity": 0,
-  "gas": 1
+  "gas": 1,
+  "email": "teste@gmail.com"
 }
 
 ###

@@ -15,6 +15,7 @@ class Carbon:
         total_tco2_yearly=None,
         trees=None,
         creation_date=None,
+        email=None,
     ) -> None:
         self.id = id
         self.car_id = car_id
@@ -25,6 +26,7 @@ class Carbon:
         self.total_tco2_yearly = total_tco2_yearly
         self.trees = trees
         self.creation_date = creation_date
+        self.email = email
 
     def to_JSON(self):
         return {
@@ -37,4 +39,5 @@ class Carbon:
             "total_tco2_yearly": TcoFormat.convert_tco(self.total_tco2_yearly),
             "trees": self.trees,
             "creation_date": DateFormat.convert_date(self.creation_date),
+            "email": self.email,
         }

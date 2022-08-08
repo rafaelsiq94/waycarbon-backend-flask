@@ -11,7 +11,7 @@ class CarbonModel:
 
             with connection.cursor() as cursor:
                 cursor.execute(
-                    "SELECT id, car_id, km, eletricity, gas, total_tco2_monthly, total_tco2_yearly, trees, creation_date FROM carbon"
+                    "SELECT id, car_id, km, eletricity, gas, total_tco2_monthly, total_tco2_yearly, trees, creation_date, email FROM carbon"
                 )
                 resultset = cursor.fetchall()
 
@@ -26,6 +26,7 @@ class CarbonModel:
                         row[6],
                         row[7],
                         row[8],
+                        row[9],
                     )
                     carbons.append(movie.to_JSON())
 
@@ -41,7 +42,7 @@ class CarbonModel:
 
             with connection.cursor() as cursor:
                 cursor.execute(
-                    "SELECT id, car_id, km, eletricity, gas, total_tco2_monthly, total_tco2_yearly, trees, creation_date FROM carbon WHERE id = %s",
+                    "SELECT id, car_id, km, eletricity, gas, total_tco2_monthly, total_tco2_yearly, trees, creation_date, email FROM carbon WHERE id = %s",
                     (id,),
                 )
                 row = cursor.fetchone()
@@ -58,6 +59,7 @@ class CarbonModel:
                         row[6],
                         row[7],
                         row[8],
+                        row[9],
                     )
                     carbon = carbon.to_JSON()
 
@@ -73,7 +75,7 @@ class CarbonModel:
 
             with connection.cursor() as cursor:
                 cursor.execute(
-                    """INSERT INTO carbon (id, car_id, km, eletricity, gas, total_tco2_monthly, total_tco2_yearly, trees, creation_date) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)""",
+                    """INSERT INTO carbon (id, car_id, km, eletricity, gas, total_tco2_monthly, total_tco2_yearly, trees, creation_date, email) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)""",
                     (
                         carbon.id,
                         carbon.car_id,
@@ -84,6 +86,7 @@ class CarbonModel:
                         carbon.total_tco2_yearly,
                         carbon.trees,
                         carbon.creation_date,
+                        carbon.email,
                     ),
                 )
                 affected_rows = cursor.rowcount

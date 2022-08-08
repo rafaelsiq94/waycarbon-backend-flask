@@ -45,6 +45,7 @@ def add_carbon():
         eletricity_calc = eletricity * 0.000083333333333
         gas = request.json["gas"]
         gas_calc = gas * 0.040166666666667
+        email = request.json["email"]
 
         total_tco2_monthly = km_calc + eletricity_calc + gas_calc
         total_tco2_yearly = total_tco2_monthly * 12
@@ -60,6 +61,7 @@ def add_carbon():
             total_tco2_yearly,
             trees,
             creation_date,
+            email,
         )
 
         affected_rows = CarbonModel.add_carbon(carbon)
